@@ -1,17 +1,17 @@
 class RandomizedSet {
     
-    HashSet<Integer> set;
+    HashMap<Integer,Integer> map = new HashMap<>();
    
     List<Integer> traverse = new ArrayList<>();
     
     public RandomizedSet() {
-        set = new HashSet<>();
+       
     }
     
     public boolean insert(int val) {
         
-    
-        if(set.add(val)){
+        if(!map.containsKey(val)){
+            map.put(val,traverse.size());
             traverse.add(val);
             return true;
         }
@@ -20,8 +20,13 @@ class RandomizedSet {
     
     public boolean remove(int val) {
         
-        if(set.remove(val)){
-            traverse.remove((Integer)val);
+        if(map.containsKey(val)){
+            int lastEle = traverse.get(traverse.size()-1);
+            int currIndex = map.get(val);
+            traverse.set(currIndex,lastEle);
+            map.put(lastEle,currIndex);
+            traverse.remove(traverse.size()-1);
+            map.remove(val);
             return true;
         }
         return false;
