@@ -18,7 +18,6 @@ class Solution {
             
             arr[i] = key;
             
-            System.out.println("Cost Map" + costMap);
         }
         
        
