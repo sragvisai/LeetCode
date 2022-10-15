@@ -7,7 +7,7 @@ class Solution {
       // generate bitmask, from 0..00 to 1..11
       String bitmask = Integer.toBinaryString(i).substring(1);
         
-     System.out.println("Here "+bitmask);
+     //System.out.println("Here "+bitmask);
 
       // append subset corresponding to that bitmask
       List<Integer> curr = new ArrayList();
