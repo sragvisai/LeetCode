@@ -1,8 +1,7 @@
 class RandomizedSet {
     
     HashSet<Integer> set;
-    int minEle = 0 , maxEle = 0;
-    // HashMap<Integer,Integer> map = new HashMap<>();
+   
     List<Integer> traverse = new ArrayList<>();
     
     public RandomizedSet() {
@@ -11,12 +10,7 @@ class RandomizedSet {
     
     public boolean insert(int val) {
         
-        // if(!map.containsKey(val)){
-        //     map.put(val,traverse.size());
-        //     traverse.add(val);       
-        // }
-        // return set.add(val);
-        
+    
         if(set.add(val)){
             traverse.add(val);
             return true;
@@ -34,12 +28,8 @@ class RandomizedSet {
     }
     
     public int getRandom() {
-        
-        Random random = new Random(); 
-        
-        int x = random.nextInt(traverse.size());
-        
-        return traverse.get(x);
+                
+        return traverse.get((int)(Math.random() * (traverse.size()) ));
         
     }
 }
