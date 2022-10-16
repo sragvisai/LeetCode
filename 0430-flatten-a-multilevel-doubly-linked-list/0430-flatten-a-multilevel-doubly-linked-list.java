@@ -29,7 +29,6 @@ class Solution {
         
         dfs(traverse,traverse.next);
         
-        System.out.println("Here "+list);
         
         if(list.size() == 0) return res;
         
