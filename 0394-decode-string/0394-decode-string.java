@@ -9,9 +9,7 @@ class Solution {
         
         int i = 0;
         while(i < s.length()){
-           //System.out.println("BraceCount "+braceCount);
             if(s.charAt(i) == ']'){
-                //perform some operations here
                 StringBuilder temp = new StringBuilder();
                 
                 //traverse through the list and build a string
@@ -31,9 +29,7 @@ class Solution {
                 //if the count > 0 then we are still inside of an another openbracket
                 //so append this string to the list
                 
-                //System.out.println("Count needed "+countNeeded);
                 if(braceCount > 0){
-                    System.out.println("Character "+character);
                     character.add(appendString(temp,countNeeded.get(countNeeded.size()-1)).toString());
                 }
                 else{
@@ -59,7 +55,6 @@ class Solution {
             }
             else if(braceCount > 0){
                 character.add(String.valueOf(s.charAt(i)));
-                System.out.println("Here for "+s.charAt(i));
             }
                 
             else
@@ -67,7 +62,6 @@ class Solution {
             
             i++;
             
-            System.out.println("SV at "+sb);
         }
         
         int leftOut = 0;
@@ -78,7 +72,6 @@ class Solution {
     }
     
     public StringBuilder appendString(StringBuilder sb, int count){
-        System.out.println("Start res" + sb);
         int i = 0;
         StringBuilder res = new StringBuilder();
         
@@ -87,7 +80,6 @@ class Solution {
             i++;
         }
         
-        System.out.println("Returning res" + res);
         return res;
     }
 }
