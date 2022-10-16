@@ -8,7 +8,6 @@ class Solution {
         
         int i = 0, j =0 , maxCount = 1;
         
-        int[] countChar = new int[26];
         
         while(j < s.length()){
             
