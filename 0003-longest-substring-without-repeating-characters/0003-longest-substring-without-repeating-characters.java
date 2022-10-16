@@ -26,9 +26,7 @@ class Solution {
             else{
                 
                 maxCount = Math.max(maxCount,j-i);
-                //System.out.println("HERE "+i+" "+j);
                 i = Math.max(map.get(curr)+1,i);
-                //System.out.println("There "+i+" "+j);
                 map.put(curr,j);
                 j++;
             }
