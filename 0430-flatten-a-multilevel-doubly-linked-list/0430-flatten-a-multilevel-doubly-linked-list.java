@@ -9,9 +9,7 @@ class Node {
 */
 
 class Solution {
-    
-    List<Integer> list = new ArrayList<>();
-    
+      
     public Node flatten(Node head) {
         
         //a recursive dfs approach
@@ -37,19 +35,12 @@ class Solution {
         
         if(traverse == null) return;
         
-        Node curr = traverse;
-        
-        // list.add(curr.val);
-        
+       
        if(traverse.child == null){
            
            dfs(traverse.next,next); // 8, 4
            
            if(traverse != null && traverse.next == null){
-               
-               System.out.println("Here "+traverse.val);
-               
-               //System.out.println("Here --- "+next.val);
                
                traverse.next = next;
                if(next!=null)
