@@ -24,32 +24,11 @@ class Solution {
         
         Node traverse = head;
         
-        Node res = null;
+        Node res = traverse;
 
         
-        dfs(traverse,traverse.next);
-        
-        
-        if(list.size() == 0) return res;
-        
-        res = new Node();
-        res.val = list.get(0);
-        res.prev = null;
-        
-        traverse = res;
-        
-        for(int i = 1 ;i < list.size() ; i++){
-            
-            Node node = new Node();
-            node.val = list.get(i);
-            
-            traverse.next = node;
-            node.prev = traverse;
-            
-            traverse = traverse.next;
-            
-            
-        }
+        dfs(traverse,null);
+
         
         return res;
     }
@@ -60,16 +39,37 @@ class Solution {
         
         Node curr = traverse;
         
-        list.add(curr.val);
+        // list.add(curr.val);
         
        if(traverse.child == null){
            
-           dfs(traverse.next,next);
+           dfs(traverse.next,next); // 8, 4
+           
+           if(traverse != null && traverse.next == null){
+               
+               System.out.println("Here "+traverse.val);
+               
+               //System.out.println("Here --- "+next.val);
+               
+               traverse.next = next;
+               if(next!=null)
+                next.prev = traverse;
+               
+           }
        }
         else{
             
-            dfs(traverse.child,next);
+            Node passThis = traverse.next;
+            traverse.next = traverse.child;
+            traverse.child.prev = traverse;
+            traverse.child = null;
+            
+            if(passThis!=null)
+            dfs(traverse.next,passThis); //7,4
+            else
             dfs(traverse.next,next);
+                       
+            dfs(passThis,next);
         }       
             
         
