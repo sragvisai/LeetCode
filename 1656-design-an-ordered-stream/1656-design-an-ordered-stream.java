@@ -1,9 +1,8 @@
 class OrderedStream {
     
-    int finalCount = 1 , index = 0 ;
+    int index = 1 ;
     String[] arr ;
     
-    HashSet<Integer> set = new HashSet<>();
     
     public OrderedStream(int n) {
         
@@ -13,20 +12,14 @@ class OrderedStream {
     public List<String> insert(int idKey, String value) {
         
         arr[idKey] = value;
-        
-        index = Math.max(index,idKey);
-        
-        set.add(idKey);
-        
-        
+            
         List<String> res = new ArrayList<>();
        
           
-            for(int i = finalCount ; i <= index ; i++){
-                if(!set.contains(i)) break;
-                res.add(arr[i]);
-                finalCount++;
-            }
+        while(index < arr.length && arr[index] != null){
+            res.add(arr[index]);
+            index++;
+        }
         
         
         return res;
