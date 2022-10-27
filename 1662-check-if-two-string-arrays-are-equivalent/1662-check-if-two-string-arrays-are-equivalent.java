@@ -13,9 +13,6 @@ class Solution {
             sb2.append(str);
         }
         
-        // System.out.println("S "+sb1);
-        // System.out.println("S 2 " +sb2);
-        
         return sb1.compareTo(sb2) == 0;
     }
 }
