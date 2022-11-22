@@ -1,9 +1,10 @@
 class Solution {
-    int count = 0;
-    int startI = 0 , startJ = 0 , minCount = Integer.MAX_VALUE;
+    
     public int nearestExit(char[][] maze, int[] entrance) {
         
         Queue<Node> que = new LinkedList<>();
+        
+        int count = 0;
                 
         que.offer(new Node(entrance[0],entrance[1]));
         
@@ -20,13 +21,8 @@ class Solution {
                 int x = node.x;
                 int y = node.y;
                 
-                // System.out.println("Here "+x+" "+y);
-                // System.out.println("There "+maze.length+" "+maze[0].length);
-                
                 if(x >= maze.length || x < 0 || y >= maze[0].length || y <0 || maze[x][y]  == '+' || visited[x][y] == 1)
                         continue;
-                
-                
                 
                 visited[x][y] = 1;
                 
